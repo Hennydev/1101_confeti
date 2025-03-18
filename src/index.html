@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/css/glide.core.min.css"
+    />
+    <!-- <link href="./dist/output.css" rel="stylesheet" /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Caveat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap");
+    </style>
+    <script>
+      tailwind.config = {
+        content: [
+          "./src/**/*.{html,js}",
+          "./node_modules/tw-elements/dist/js/**/*.js",
+        ],
+        theme: {
+          extend: {
+            fontFamily: {
+              Caveat: ["Caveat", "sans-serif"],
+            },
+            animation: {
+              "text-slide":
+                "text-slide 12.5s cubic-bezier(0.83, 0, 0.17, 1) infinite",
+            },
+            keyframes: {
+              "text-slide": {
+                "0%, 16%": {
+                  transform: "translateY(0%)",
+                },
+                "20%, 36%": {
+                  transform: "translateY(-16.66%)",
+                },
+                "40%, 56%": {
+                  transform: "translateY(-33.33%)",
+                },
+                "60%, 76%": {
+                  transform: "translateY(-50%)",
+                },
+                "80%, 96%": {
+                  transform: "translateY(-66.66%)",
+                },
+                "100%": {
+                  transform: "translateY(-83.33%)",
+                },
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js"
+      defer
+    ></script>
+
+    <style>
+      .scroll-container {
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+
+      .scroll-item {
+        display: inline-block;
+        min-width: 200px;
+        /* Adjust as needed */
+        padding: 16px;
+        margin: 8px;
+        background-color: #3490dc;
+        color: #d433f2;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+
+  <body class="overflow-x-hidden relative">
+    <nav
+      class="mx-auto fixed top-0 md:flex md:flex-row bg-[#322727] items-center w-full z-50 md:py-6 py-6 lg:py-10"
+    >
+      <div
+        x-data="{ open: false }"
+        class="flex lg:flex-row md:flex-col flex-col lg:items-center justify-between lg:w-[80%] md:w-[80%] w-[80%] items-start mx-auto"
+      >
+        <!-- <img
+          class="h-14 w-14 hidden lg:flex"
+          src="./asset/logo.png"
+          alt="logo"
+        /> -->
+        <p
+          class="lg:block hidden text-3xl w-full font-bold active:underline active:font-[700] leading-normal text-white font-Caveat"
+        >
+          <a href="./index.html">1101 Confectionaries</a>
+        </p>
+
+        <div
+          class="flex flex-row items-center justify-between md:w-full w-full sm:mx-auto"
+        >
+          <!-- <div class="lg:hidden flex flex-row items-center">
+                    <img class="h-12 w-12" src="./asset/logo.png" alt="logo" />
+                </div> -->
+          <p
+            class="text-3xl w-full font-bold text-md md:text-3xl lg:hidden block active:underline active:font-[700] leading-normal text-white font-Caveat"
+          >
+            <a href="./index.html">1101 Confectionaries</a>
+          </p>
+
+          <button>
+            <button
+              @click="open = ! open"
+              type="button"
+              class="block rounded font-semibold lg:!hidden transition duration-150 ease-in-out focus:outline-none focus:ring-0"
+              type="button"
+              data-te-offcanvas-toggle
+              data-te-target="#offcanvasExample"
+              aria-controls="offcanvasExample"
+              data-te-ripple-init
+              data-te-ripple-color="light"
+            >
+              <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+              <svg
+                width="30px"
+                height="30px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 6H20M4 12H20M4 18H20"
+                  stroke="#fff"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </button>
+
+          <ul
+            x-data="{ open: false }"
+            class="lg:flex hidden lg:flex-row flex-col lg:space-x-12 xl:space-x-16 lg:text-[18px] text-[15px]"
+          >
+            <li class="capitalize"></li>
+            <li
+              class="text-md font-bold active:underline active:font-[700] leading-normal text-white font-Caveat"
+            >
+              <a href="./index.html">Home</a>
+            </li>
+            <li
+              class="text-md font-bold active:underline active:font-[700] leading-normal text-white font-Caveat"
+            >
+              <a href="./about.html">About Us</a>
+            </li>
+
+            <li
+              class="text-md font-bold 3F2] active:underline active:font-[700] leading-normal text-white font-Caveat"
+            >
+              <a href="#testimonial">Products</a>
+            </li>
+            <li
+              class="text-md font-bold 3F2] active:underline active:font-[700] leading-normal text-white font-Caveat"
+            >
+              <a href="https://wa.me/message/GPXHFW44MRMGI1" target="_blank"
+                >Contact Us</a
+              >
+            </li>
+
+            <!-- <li class="text-base font-[700] transition duration-150 ease-in-out" type="button"
+                        data-te-toggle="modal" data-te-target="#exampleModalCenteredScrollable" data-te-ripple-init
+                        data-te-ripple-color="light">
+                        <a href="#">
+                            <img class="h-6 w-6" src="./asset/cart.svg" alt="cart" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img class="h-6 w-6" src="./asset/search.svg" alt="search" />
+                        </a>
+                    </li> -->
+          </ul>
+        </div>
+        <ul
+          x-show="open"
+          class="lg:hidden flex lg:flex-row w-full flex-col space-y-6 items-center justify-center lg:text-[18px] text-[15px]"
+        >
+          <li class="capitalize"></li>
+          <li
+            class="text-md font-bold active:underline active:font-[700] leading-normal text-white font-Caveat"
+          >
+            <a href="./index.html">Home</a>
+          </li>
+          <li
+            class="text-md font-bold active:underline active:font-[700] leading-normal text-white font-Caveat"
+          >
+            <a href="./about.html">About Us</a>
+          </li>
+
+          <li
+            class="text-md font-bold 3F2] active:underline active:font-[700] leading-normal text-white font-Caveat"
+          >
+            <a href="#testimonial">Products</a>
+          </li>
+          <li
+            class="text-md font-bold 3F2] active:underline active:font-[700] leading-normal text-white font-Caveat"
+          >
+            <a href="https://wa.me/message/GPXHFW44MRMGI1" target="_blank"
+              >Contact Us</a
+            >
+          </li>
+
+          <!-- <li class="text-base font-[700] transition duration-150 ease-in-out" type="button"
+                        data-te-toggle="modal" data-te-target="#exampleModalCenteredScrollable" data-te-ripple-init
+                        data-te-ripple-color="light">
+                        <a href="#">
+                            <img class="h-6 w-6" src="./asset/cart.svg" alt="cart" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img class="h-6 w-6" src="./asset/search.svg" alt="search" />
+                        </a>
+                    </li> -->
+        </ul>
+      </div>
+    </nav>
+
+    <div class="w-[100vw] bg-[#322727] pb-12">
+      <div id="default-carousel" class="relative w-full" data-carousel="slide">
+        <!-- Carousel wrapper -->
+        <div
+          class="relative h-[100vh] md:h-[80vh] overflow-hidden rounded-lg lg:h-[100vh]"
+        >
+          <!-- Item 1 -->
+          <div class="hidden duration-1000 ease-in-out" data-carousel-item>
+            <img
+              src="/docs/images/carousel/carousel-1.svg"
+              class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+              alt="..."
+            />
+            <div
+              class="mx-auto md:space-x-4 lg:space-6 lg:space- md:w-[80%] w-[90%] lg:w-[80%] lg:mt-[60px] mt-[24px] pb-12 h-full flex md:flex-row flex-col items-center justify-center md:justify-between"
+            >
+              <div class="w-[400px] h-[400px] md:w-[400px]  md:h-[400px] lg:w-[450px] lg:h-[450px] xl:h-[600px] xl:w-[600px] ">
+                <img
+                class=" w-full h-full rounded-full shadow mb-6"
+                src="./asset/newhero.jpg"
+                alt="hero-img"
+              />
+              </div>
+
+              <div class="md:w-[50%] lg:w-[50%]">
+                <h1
+                  class="capitalize text-[#fff] lg:text-[30pt] text-[24pt] md:text-4xl font-Caveat"
+                >
+                  Sweet Dessert
+                </h1>
+                <p
+                  class="capitalize lg:text-[12pt] text-[10pt] mb-6 pt-4 text-[#fff]"
+                >
+                  Sweeten up your day with a delightful treat! Our desserts are
+                  crafted to perfection, offering a symphony of flavors and
+                  textures to satisfy your sweet tooth and leave you craving for
+                  more.
+                </p>
+                <button
+                  class="bg-white px-10 py-3 rounded-sm mt-4 font-bold hover:shadow-2xl text-[#322727]"
+                >
+                  <a href="https://wa.me/message/GPXHFW44MRMGI1" target="_blank"
+                    >Order Now</a
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Item 2 -->
+          <div class="hidden duration-1000 ease-in-out" data-carousel-item>
+            <img
+              src="/docs/images/carousel/carousel-1.svg"
+              class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+              alt="..."
+            />
+            <div
+              class="mx-auto md:space-x-4 lg:space-6 lg:space- md:w-[80%] w-[80%] lg:w-[80%] lg:mt-[60px] mt-[24px] h-full flex md:flex-row flex-col items-center justify-center md:justify-between"
+            >
+             <div class="w-[400px] h-[400px] md:w-[400px]  md:h-[400px] lg:w-[450px] lg:h-[450px] xl:h-[600px] xl:w-[600px]">
+                <img
+                class=" w-full h-full rounded-full shadow mb-6"
+                src="./asset/cake.jpg"
+                alt="hero-img"
+              />
+              </div>
+
+              <div class="md:w-[50%] lg:w-[50%]">
+                <h1
+                  class="capitalize text-[#fff] lg:text-[30pt] text-[24pt] md:text-4xl font-Caveat"
+                >
+                  Cake Bliss
+                </h1>
+                <p
+                  class="capitalize lg:text-[12pt] text-[10pt] pt-4 text-[#fff]"
+                >
+                  Celebrate life's sweetest moments with a slice of heaven!
+                  Moist, decadent, and crafted with love, our cakes are the
+                  perfect treat to indulge your senses and make every occasion
+                  unforgettable.
+                </p>
+                <button
+                  class="bg-white px-10 py-3 rounded-sm my-4 font-bold hover:shadow-2xl text-[#322727]"
+                >
+                  <a href="https://wa.me/message/GPXHFW44MRMGI1" target="_blank"
+                    >Order Now</a
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+
+
+             <div class="hidden duration-1000 ease-in-out" data-carousel-item>
+            <img
+              src="/docs/images/carousel/carousel-1.svg"
+              class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+              alt="..."
+            />
+            <div
+              class="mx-auto md:space-x-4 lg:space-6 lg:space- md:w-[80%] w-[80%] lg:w-[80%] lg:mt-[60px] mt-[24px] h-full flex md:flex-row flex-col items-center justify-center md:justify-between"
+            >
+             <div class="w-[400px] h-[400px] md:w-[400px]  md:h-[400px] lg:w-[450px] lg:h-[450px] xl:h-[600px] xl:w-[600px]">
+                <img
+                class=" w-full h-full rounded-full shadow mb-6"
+                src="./asset/dess2.jpeg"
+                alt="hero-img"
+              />
+              </div>
+
+              <div class="md:w-[50%] lg:w-[50%]">
+                <h1
+                  class="capitalize text-[#fff] lg:text-[30pt] text-[24pt] md:text-4xl font-Caveat"
+                >
+                  Confectionaries Delights
+                </h1>
+                <p
+                  class="capitalize lg:text-[12pt] text-[10pt] pt-4 text-[#fff]"
+                >
+                      Step into a world of pure imagination and indulge in the
+                    sweet life! Our confectionaries are a haven for those with a
+                    sweet tooth, offering an array of treats that will tantalize
+                    your taste buds and leave you wanting more.
+                </p>
+                <button
+                  class="bg-white px-10 py-3 rounded-sm my-4 font-bold hover:shadow-2xl text-[#322727]"
+                >
+                  <a href="https://wa.me/message/GPXHFW44MRMGI1" target="_blank"
+                    >Order Now</a
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Slider indicators -->
+        <div
+          class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse"
+        >
+          <button
+            type="button"
+            class="w-3 h-3 rounded-full"
+            aria-current="true"
+            aria-label="Slide 1"
+            data-carousel-slide-to="0"
+          ></button>
+          <button
+            type="button"
+            class="w-3 h-3 rounded-full"
+            aria-current="false"
+            aria-label="Slide 2"
+            data-carousel-slide-to="1"
+          ></button>
+          <button
+            type="button"
+            class="w-3 h-3 rounded-full"
+            aria-current="false"
+            aria-label="Slide 3"
+            data-carousel-slide-to="2"
+          ></button>
+        </div>
+        <!-- Slider controls -->
+        <button
+          type="button"
+          class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+          data-carousel-prev
+        >
+          <span
+            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+          >
+            <svg
+              class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 6 10"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 1 1 5l4 4"
+              />
+            </svg>
+            <span class="sr-only">Previous</span>
+          </span>
+        </button>
+        <button
+          type="button"
+          class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+          data-carousel-next
+        >
+          <span
+            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+          >
+            <svg
+              class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 6 10"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 9 4-4-4-4"
+              />
+            </svg>
+            <span class="sr-only">Next</span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <!--- about us--->
+
+    <div
+      class="md:w-[90%] flex md:flex-row flex-col md:space-x-4   items-center justify-center  md:space-y-0 space-y-6 lg:pt-36 pt-10 w-[80%] lg:w-[80%] mx-auto md:mt-20 mt-10"
+    >
+      <div class="">
+        <div
+          class="w-[400px] h-[400px] md:w-[250px] md:h-[250px] lg:w-[300px] lg:h-[300px] xl:w-[350px] xl:h-[350px] md:pt-0"
+        >
+          <img
+            class="rounded-full object-cover object-center w-full h-full"
+            src="./asset/caker.jpg"
+            alt="hero-img"
+          />
+        </div>
+        <p
+          class="font-[500] lg:text-[30px] md:text-[24px] pt-6 font-Caveat text-center text-[20px] leading-[37.65px]"
+        >
+          Cakes
+        </p>
+      </div>
+      <div>
+        <div
+          class="w-[400px] h-[400px] md:w-[250px] md:h-[250px] lg:w-[300px] lg:h-[300px] xl:w-[350px] xl:h-[350px] md:pt-0"
+        >
+          <img
+            class="rounded-full object-cover object-center w-full h-full"
+            src="./asset/parfaits.jpg"
+            alt="hero-img"
+          />
+        </div>
+        <p
+          class="font-[500] lg:text-[30px] md:text-[24px] pt-6 font-Caveat text-center text-[20px] leading-[37.65px]"
+        >
+          Parfait
+        </p>
+      </div>
+      <div>
+        <div
+          class="w-[400px] h-[400px] md:w-[250px] md:h-[250px] lg:w-[300px] lg:h-[300px] xl:w-[350px] xl:h-[350px] md:pt-0"
+        >
+          <img
+            class="rounded-full object-cover object-center w-full h-full"
+            src="./asset/smchops.jpg"
+            alt="hero-img"
+          />
+        </div>
+        <p
+          class="font-[500] lg:text-[30px] md:text-[24px] pt-6 font-Caveat text-center text-[20px] leading-[37.65px]"
+        >
+          Smallchops
+        </p>
+      </div>
+    </div>
+    <div
+      class="w-[80%] md:w-[90%] flex md:flex-row flex-col md:my-0 justify-center items-center md:py-16 md:space-x-12 py-14 lg:w-[80%] mx-auto"
+    >
+        <div
+        class="w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] xl:w-[500px] xl:h-[500px]  relative mt-14 hidden md:block bg-[#322727] rounded-full shadow object-top"
+      >
+        <img
+          class="rounded-full w-full h-full absolute right-4 "
+          src="./asset/hero-img.jpeg"
+          alt="hero-img"
+        />
+      </div>
+      <div class=" py-4 md:py-0 md:w-[45%]">
+        <h1
+          class="capitalize text-[#322727] font-semibold text-[32pt] font-Caveat"
+        >
+          Who we are
+        </h1>
+        <p class="capitalize  text-[12pt] py-4 mb-4 text-[#322727]">
+          We are 1101 Sweet Confectionaries, our vision is to become the premier
+          destination for sweet treats that bring joy and happiness to our
+          customers. We envision a world where every occasion is made sweeter
+          with our delicious confections.
+        </p>
+        <a
+          href="about.html"
+          class="bg-[#322727] px-10 py-3 rounded-sm font-bold hover:shadow-2xl text-[#fff]"
+        >
+          Read More
+        </a>
+      </div>
+      <div
+        class="w-[500px] h-[500px] relative mt-14 block md:hidden bg-[#322727] rounded-full shadow object-top"
+      >
+        <img
+          class="rounded-full w-full h-full absolute right-4 "
+          src="./asset/hero-img.jpeg"
+          alt="hero-img"
+        />
+      </div>
+    </div>
+    <!--our product-->
+    <div class="w-[100vw] bg-[#322727] pb-24">
+      <h1
+        class="capitalize text-[#fff] font-semibold text-[32pt] text-center pt-24 pb-12 font-Caveat"
+      >
+        Our Products
+      </h1>
+      <div
+        class="w-[80%] h-full md:w-[80%] lg:w-[80%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mx-auto"
+      >
+        <div
+          class=" md:h-[300px] h-[200px] rounded-lg bg-[#fff] flex flex-col items-center justify-center"
+        >
+          <img
+            class="lg:h-[50%] lg:w-[50%] h-[40%] w-[25%] "
+            src="./asset/cook.png"
+            alt="products"
+          />
+
+          <p
+            class="font-[500] lg:text-[30px] md:text-[24px] font-Caveat text-center text-[20px] pt-6 leading-0.5"
+          >
+            Cookies
+          </p>
+
+        </div>
+
+        <div
+          class=" md:h-[300px] h-[200px] rounded-lg bg-[#fff] flex flex-col items-center justify-center"
+        >
+          <img
+            class="lg:h-[50%] lg:w-[50%] h-[40%] w-[25%] "
+            src="./asset/cake.png"
+            alt="products"
+          />
+
+          <p
+            class="font-[500] lg:text-[30px] md:text-[24px] font-Caveat text-center text-[20px] pt-6 leading-0.5"
+          >
+            Cake
+          </p>
+
+        </div>
+        <div
+          class=" md:h-[300px] h-[200px] rounded-lg bg-[#fff] flex flex-col items-center justify-center"
+        >
+          <img class="lg:h-[50%] lg:w-[50%] h-[40%] w-[25%] " src="./asset/tnut.png" alt="products" />
+
+          <p
+            class="font-[500] lg:text-[30px] md:text-[24px] font-Caveat text-center text-[20px]  pt-6 leading-0.5"
+          >
+            TigerNut Drink
+          </p>
+
+        </div>
+        <div
+          class=" md:h-[300px] h-[200px] rounded-lg bg-[#fff] flex flex-col items-center justify-center"
+        >
+          <img
+            class="lg:h-[50%] lg:w-[50%] h-[40%] w-[25%] "
+            src="./asset/chinn.png"
+            alt="products"
+          />
+
+          <p
+            class="font-[500] lg:text-[30px] md:text-[24px] font-Caveat text-center text-[20px] pt-6 leading-0.5"
+          >
+            Chinchin
+          </p>
+
+        </div>
+        <div
+          class=" md:h-[300px] h-[200px] rounded-lg bg-[#fff] flex flex-col items-center justify-center"
+        >
+          <img
+            class="lg:h-[50%] lg:w-[50%] h-[40%] w-[25%] "
+            src="./asset/zoboo.png"
+            alt="products"
+          />
+
+          <p
+            class="font-[500] lg:text-[30px] md:text-[24px] font-Caveat text-center text-[20px] pt-6 leading-0.5"
+          >
+            Zobo
+          </p>
+
+        </div>
+        <div
+          class=" md:h-[300px] h-[200px] rounded-lg bg-[#fff] flex flex-col items-center justify-center"
+        >
+          <img
+            class="lg:h-[50%] lg:w-[50%] h-[40%] w-[25%] "
+            src="./asset/bredloaf.png"
+            alt="products"
+          />
+
+          <p
+            class="font-[500] lg:text-[30px] md:text-[24px] font-Caveat text-center text-[20px] pt-6 leading-0.5"
+          >
+            Bread Loaf
+          </p>
+
+        </div>
+        <div
+          class=" md:h-[300px] h-[200px] rounded-lg bg-[#fff] flex flex-col items-center justify-center"
+        >
+          <img
+            class="lg:h-[50%] lg:w-[50%] h-[40%] w-[25%] "
+            src="./asset/chp.png"
+            alt="products"
+          />
+
+          <p
+            class="font-[500] lg:text-[30px] md:text-[24px] font-Caveat text-center text-[20px] pt-6 leading-0.5"
+          >
+            Ready to fry smallchops
+          </p>
+
+        </div>
+       
+      </div>
+      <div class="flex items-center justify-center w-full">
+        <a
+          href="product.html"
+          class="text-[#322727] mt-14 px-10 py-3 rounded-sm font-bold hover:shadow-2xl bg-[#fff]"
+          >See More
+        </a>
+      </div>
+    </div>
+
+    <div
+      id="testimonial"
+      class="flex flex-row mx-auto justify-center items-center pt-10 md:pt-20"
+    >
+      <p
+        class="font-[500] font-Caveat md:text-[40px] text-[24px] md:leading-[37.65px]"
+      >
+        What our customers say
+      </p>
+    </div>
+    <p
+      class="text-center text-[#322727] md:text-base text-[14px] font-normal pt-4 pb-10 mb:pb-20 md:w-[35%] w-[80%] mx-auto leading-normal"
+    >
+      We are always having returning customers because we ensure we deliver
+      quality all the time, You can never regret booking us for your events and
+      cravings.
+    </p>
+    <div
+      class="flex flex-row w-[80%] no-scrollbar md:pb-20 pb-10 md:w-[80%] mx-auto space-x-4 md:space-x-10 overflow-x-scroll"
+    >
+      <div
+        class="md:w-[700px] w-[400px] p-6 bg-white rounded-md border-top border-[0.5px] drop-shadow-lg flex-col justify-start items-start gap-4 inline-flex"
+      >
+        <div
+          class="flex flex-row md:gap-4 gap-2 items-center w-full justify-start"
+        >
+          <div class="w-9 h-9 rounded-lg border border-[#322727]"></div>
+          <div class="space-y-1">
+            <p
+              class="w-52 text-[#322727] md:text-base text-sm font-bold font-['Caveat'] leading-none"
+            >
+              Elizbeth
+            </p>
+            <p
+              class="text-[#322727] md:text-sm text-xs font-normal font-['Caveat'] leading-none"
+            >
+              The small chop was really tasty, I was craving for more.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="md:w-[700px] w-[400px] p-6 bg-white rounded-md border-top border-[0.5px] drop-shadow-lg flex-col justify-start items-start gap-4 inline-flex"
+      >
+        <div
+          class="flex flex-row md:gap-4 gap-2 items-center w-full justify-start"
+        >
+          <div class="w-9 h-9 rounded-lg border border-[#322727]"></div>
+          <div class="space-y-1">
+            <p
+              class="w-52 text-[#322727] md:text-base text-sm font-bold font-['Caveat'] leading-none"
+            >
+              Genesis
+            </p>
+            <p
+              class="text-[#322727] md:text-sm text-xs font-normal font-['Caveat'] leading-none"
+            >
+              The cake was yummy, I love it!!!
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="md:w-[700px] w-[400px] p-6 bg-white rounded-md border-top border-[0.5px] drop-shadow-lg flex-col justify-start items-start gap-4 inline-flex"
+      >
+        <div
+          class="flex flex-row md:gap-4 gap-2 items-center w-full justify-start"
+        >
+          <div class="w-9 h-9 rounded-lg border border-[#322727]"></div>
+          <div class="space-y-1">
+            <p
+              class="w-52 text-[#322727] md:text-base text-sm font-bold font-['Caveat'] leading-none"
+            >
+              Oyinkansola
+            </p>
+            <p
+              class="text-[#322727] md:text-sm text-xs font-normal font-['Caveat'] leading-none"
+            >
+              The pafait was superb, It was worth th price
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-full bg-[#322727] h-full">
+      <div
+        class="w-[80%] md:w-[80%] sm:flex lg:flex md:hidden flex-col md:flex-row items-start justify-between md:space-y-0 space-y-10 md:py-16 py-6 lg:w-[80%] mx-auto"
+      >
+        <div>
+          <div>
+            <p
+              class="text-[32px] pt-4 text-white font-Caveat leading-[24px] text-[#ced"
+            >
+              1101 Confectionaries
+            </p>
+          </div>
+        </div>
+        <div>
+          <p class="text-[16px] font-[800] pb-4 leading-[24px] text-[#fff]">
+            Useful Links
+          </p>
+          <p>
+            <a
+              href="about.html"
+              class="text-[14px] pt-4 text-white leading-[24px] text-[#ced"
+            >
+              About Us
+            </a>
+          </p>
+          <p>
+            <a
+              href="#"
+              class="text-[14px] py-2 text-white leading-[24px] text-[#ced"
+            >
+              Our Products
+            </a>
+          </p>
+          <p>
+            <a
+              href="https://wa.me/message/GPXHFW44MRMGI1"
+              target="_blank"
+              class="text-[14px] py-2 text-white leading-[24px] text-[#ced"
+            >
+              Contact Us
+            </a>
+          </p>
+        </div>
+        <div class="md:w-[20%] flex flex-col items-start justify-start">
+          <p class="text-[16px] font-[800] leading-[24px] text-[#fff]">
+            Contact Us
+          </p>
+          <div class="flex pt-4 pb-2 items-start justify-start space-x-1">
+            <span>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="map-marker">
+                  <path
+                    id="Vector"
+                    d="M9 8.625C8.50272 8.625 8.02581 8.42746 7.67417 8.07583C7.32254 7.72419 7.125 7.24728 7.125 6.75C7.125 6.25272 7.32254 5.77581 7.67417 5.42417C8.02581 5.07254 8.50272 4.875 9 4.875C9.49728 4.875 9.97419 5.07254 10.3258 5.42417C10.6775 5.77581 10.875 6.25272 10.875 6.75C10.875 6.99623 10.8265 7.24005 10.7323 7.46753C10.638 7.69502 10.4999 7.90172 10.3258 8.07583C10.1517 8.24994 9.94502 8.38805 9.71753 8.48227C9.49005 8.5765 9.24623 8.625 9 8.625ZM9 1.5C7.60761 1.5 6.27226 2.05312 5.28769 3.03769C4.30312 4.02226 3.75 5.35761 3.75 6.75C3.75 10.6875 9 16.5 9 16.5C9 16.5 14.25 10.6875 14.25 6.75C14.25 5.35761 13.6969 4.02226 12.7123 3.03769C11.7277 2.05312 10.3924 1.5 9 1.5Z"
+                    fill="white"
+                  />
+                </g>
+              </svg>
+            </span>
+            <p class="text-[14px] font-[400] leading-[24px] text-[#fff]">
+              4, Raheem Sooja Street, Igbooluwo estate, Ikorodu, Lagos State
+            </p>
+          </div>
+
+          <span class="flex pb-2 items-center space-x-1">
+            <span>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4.965 8.0925C6.045 10.215 7.785 11.955 9.9075 13.035L11.5575 11.385C11.7675 11.175 12.06 11.115 12.3225 11.1975C13.1625 11.475 14.0625 11.625 15 11.625C15.1989 11.625 15.3897 11.704 15.5303 11.8447C15.671 11.9853 15.75 12.1761 15.75 12.375V15C15.75 15.1989 15.671 15.3897 15.5303 15.5303C15.3897 15.671 15.1989 15.75 15 15.75C11.6185 15.75 8.37548 14.4067 5.98439 12.0156C3.5933 9.62452 2.25 6.38151 2.25 3C2.25 2.80109 2.32902 2.61032 2.46967 2.46967C2.61032 2.32902 2.80109 2.25 3 2.25H5.625C5.82391 2.25 6.01468 2.32902 6.15533 2.46967C6.29598 2.61032 6.375 2.80109 6.375 3C6.375 3.9375 6.525 4.8375 6.8025 5.6775C6.885 5.94 6.825 6.2325 6.615 6.4425L4.965 8.0925Z"
+                  fill="white"
+                />
+              </svg>
+            </span>
+            <a
+              href="tel:+2348130935623"
+              class="text-[14px] font-[400] leading-[24px] text-[#fff]"
+            >
+              +2348130935623
+            </a>
+          </span>
+          <span class="flex items-center space-x-1">
+            <span
+              ><svg
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 6L9 9.75L3 6V4.5L9 8.25L15 4.5M15 3H3C2.1675 3 1.5 3.6675 1.5 4.5V13.5C1.5 13.8978 1.65804 14.2794 1.93934 14.5607C2.22064 14.842 2.60218 15 3 15H15C15.3978 15 15.7794 14.842 16.0607 14.5607C16.342 14.2794 16.5 13.8978 16.5 13.5V4.5C16.5 3.6675 15.825 3 15 3Z"
+                  fill="white"
+                /></svg
+            ></span>
+            <a
+              href="mailto:bbalikis93@gmail.com"
+              class="text-[14px] font-[400] leading-[24px] text-[#fff]"
+            >
+              bbalikis93@gmail.com
+            </a>
+          </span>
+        </div>
+        <div class="md:w-[20%]">
+          <p class="text-[16px] font-[800] leading-[24px] text-[#fff]">
+            Follow us on:
+          </p>
+          <div class="flex flex-row space-x-3 pt-4">
+            <a
+              href="https://www.instagram.com/1101_sweet_confectioneries?igsh=bW9lY2JmOG1lZndt&utm_source=qr"
+              target="_blank"
+              ><svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="40" height="40" fill="#1E1E1E" />
+                <g id="Homepage" clip-path="url(#clip0_0_1)">
+                  <rect
+                    width="1440"
+                    height="3347"
+                    transform="translate(-1143 -3090)"
+                    fill="white"
+                  />
+                  <g id="Group 92">
+                    <path
+                      id="Rectangle 14"
+                      d="M-1143 -88H297V257H-1143V-88Z"
+                      fill="#322727"
+                    />
+                    <g id="Frame 659">
+                      <g id="Frame 648">
+                        <g id="Group 46">
+                          <g id="Group 90">
+                            <circle
+                              id="Ellipse 1"
+                              cx="20"
+                              cy="20"
+                              r="20"
+                              fill="#D9D9D9"
+                            />
+                            <path
+                              id="Vector"
+                              d="M16.64 12H23.36C25.92 12 28 14.08 28 16.64V23.36C28 24.5906 27.5111 25.7708 26.641 26.641C25.7708 27.5111 24.5906 28 23.36 28H16.64C14.08 28 12 25.92 12 23.36V16.64C12 15.4094 12.4889 14.2292 13.359 13.359C14.2292 12.4889 15.4094 12 16.64 12ZM16.48 13.6C15.7162 13.6 14.9836 13.9034 14.4435 14.4435C13.9034 14.9836 13.6 15.7162 13.6 16.48V23.52C13.6 25.112 14.888 26.4 16.48 26.4H23.52C24.2838 26.4 25.0164 26.0966 25.5565 25.5565C26.0966 25.0164 26.4 24.2838 26.4 23.52V16.48C26.4 14.888 25.112 13.6 23.52 13.6H16.48ZM24.2 14.8C24.4652 14.8 24.7196 14.9054 24.9071 15.0929C25.0946 15.2804 25.2 15.5348 25.2 15.8C25.2 16.0652 25.0946 16.3196 24.9071 16.5071C24.7196 16.6946 24.4652 16.8 24.2 16.8C23.9348 16.8 23.6804 16.6946 23.4929 16.5071C23.3054 16.3196 23.2 16.0652 23.2 15.8C23.2 15.5348 23.3054 15.2804 23.4929 15.0929C23.6804 14.9054 23.9348 14.8 24.2 14.8ZM20 16C21.0609 16 22.0783 16.4214 22.8284 17.1716C23.5786 17.9217 24 18.9391 24 20C24 21.0609 23.5786 22.0783 22.8284 22.8284C22.0783 23.5786 21.0609 24 20 24C18.9391 24 17.9217 23.5786 17.1716 22.8284C16.4214 22.0783 16 21.0609 16 20C16 18.9391 16.4214 17.9217 17.1716 17.1716C17.9217 16.4214 18.9391 16 20 16ZM20 17.6C19.3635 17.6 18.753 17.8529 18.3029 18.3029C17.8529 18.753 17.6 19.3635 17.6 20C17.6 20.6365 17.8529 21.247 18.3029 21.6971C18.753 22.1471 19.3635 22.4 20 22.4C20.6365 22.4 21.247 22.1471 21.6971 21.6971C22.1471 21.247 22.4 20.6365 22.4 20C22.4 19.3635 22.1471 18.753 21.6971 18.3029C21.247 17.8529 20.6365 17.6 20 17.6Z"
+                              fill="black"
+                            />
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+                <defs>
+                  <clipPath id="clip0_0_1">
+                    <rect
+                      width="1440"
+                      height="3347"
+                      fill="white"
+                      transform="translate(-1143 -3090)"
+                    />
+                  </clipPath>
+                </defs></svg
+            ></a>
+            <span
+              ><a
+                class="w-10 h-10 bg-[#D9D9D9] rounded-full flex items-center justify-center"
+                href="https://www.tiktok.com/@1101_sweetconfectionerie?_t=ZM-8ucMzPnEeVa&_r=1"
+                target="_blank"
+              >
+                <img
+                  class="h-6 w-6"
+                  src="./asset/tiktok.svg"
+                  alt="whatsap"
+                /> </a
+            ></span>
+            <a
+              href="https://www.facebook.com/share/16E9CGc84i/?mibextid=wwXIfr"
+              target="_blank"
+              ><svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="Group 49">
+                  <circle
+                    id="Ellipse 1"
+                    cx="20"
+                    cy="20"
+                    r="20"
+                    fill="#D9D9D9"
+                  />
+                  <path
+                    id="Vector"
+                    d="M20 11C15.05 11 11 15.041 11 20.018C11 24.518 14.294 28.253 18.596 28.928V22.628H16.31V20.018H18.596V18.029C18.596 15.77 19.937 14.528 21.998 14.528C22.979 14.528 24.005 14.699 24.005 14.699V16.922H22.871C21.755 16.922 21.404 17.615 21.404 18.326V20.018H23.906L23.501 22.628H21.404V28.928C23.5248 28.593 25.456 27.5109 26.8489 25.877C28.2419 24.2431 29.0048 22.1651 29 20.018C29 15.041 24.95 11 20 11Z"
+                    fill="black"
+                  />
+                </g></svg
+            ></a>
+            <div
+              class="w-10 h-10 bg-[#D9D9D9] rounded-full flex items-center justify-center"
+            >
+              <a href="https://wa.me/message/GPXHFW44MRMGI1" target="_blank">
+                <img class="h-6 w-6" src="./asset/whatsapp.svg" alt="whatsap" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="w-[80%] md:w-[90%] md:flex hidden lg:hidden flex-col md:flex-row items-start justify-between md:space-y-0 space-y-10 md:py-16 py-6 lg:w-[90%] mx-auto"
+      >
+        <div class="flex flex-col md:space-y-2 space-y-4 w-full">
+          <div></div>
+          <div>
+            <p
+              class="text-[14px] pt-4 font-[400] leading-[24px] text-[#cedbea]"
+            >
+              About Us
+            </p>
+            <p
+              class="text-[14px] py-2 font-[400] leading-[24px] text-[#cedbea]"
+            >
+              Contact Us
+            </p>
+
+            <p
+              class="text-[14px] pt-2 font-[400] leading-[24px] text-[#cedbea]"
+            >
+              Others
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col md:space-y-2 space-y-4 w-full">
+          <div class="lg:w-[20%] flex flex-col items-start justify-start">
+            <p
+              class="text-[16px] font-[800] leading-[24px] text-[#fff] uppercase"
+            >
+              Contact Us
+            </p>
+            <div class="flex pt-4 pb-2 items-start justify-start space-x-1">
+              <span>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g id="map-marker">
+                    <path
+                      id="Vector"
+                      d="M9 8.625C8.50272 8.625 8.02581 8.42746 7.67417 8.07583C7.32254 7.72419 7.125 7.24728 7.125 6.75C7.125 6.25272 7.32254 5.77581 7.67417 5.42417C8.02581 5.07254 8.50272 4.875 9 4.875C9.49728 4.875 9.97419 5.07254 10.3258 5.42417C10.6775 5.77581 10.875 6.25272 10.875 6.75C10.875 6.99623 10.8265 7.24005 10.7323 7.46753C10.638 7.69502 10.4999 7.90172 10.3258 8.07583C10.1517 8.24994 9.94502 8.38805 9.71753 8.48227C9.49005 8.5765 9.24623 8.625 9 8.625ZM9 1.5C7.60761 1.5 6.27226 2.05312 5.28769 3.03769C4.30312 4.02226 3.75 5.35761 3.75 6.75C3.75 10.6875 9 16.5 9 16.5C9 16.5 14.25 10.6875 14.25 6.75C14.25 5.35761 13.6969 4.02226 12.7123 3.03769C11.7277 2.05312 10.3924 1.5 9 1.5Z"
+                      fill="white"
+                    />
+                  </g>
+                </svg>
+              </span>
+              <p class="text-[14px] font-[400] leading-[24px] text-[#cedbea]">
+                4, Raheem Sooja Street, Igbooluwo estate, Ikorodu, Lagos State
+              </p>
+            </div>
+
+            <span class="flex pb-2 items-center space-x-1">
+              <span>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.965 8.0925C6.045 10.215 7.785 11.955 9.9075 13.035L11.5575 11.385C11.7675 11.175 12.06 11.115 12.3225 11.1975C13.1625 11.475 14.0625 11.625 15 11.625C15.1989 11.625 15.3897 11.704 15.5303 11.8447C15.671 11.9853 15.75 12.1761 15.75 12.375V15C15.75 15.1989 15.671 15.3897 15.5303 15.5303C15.3897 15.671 15.1989 15.75 15 15.75C11.6185 15.75 8.37548 14.4067 5.98439 12.0156C3.5933 9.62452 2.25 6.38151 2.25 3C2.25 2.80109 2.32902 2.61032 2.46967 2.46967C2.61032 2.32902 2.80109 2.25 3 2.25H5.625C5.82391 2.25 6.01468 2.32902 6.15533 2.46967C6.29598 2.61032 6.375 2.80109 6.375 3C6.375 3.9375 6.525 4.8375 6.8025 5.6775C6.885 5.94 6.825 6.2325 6.615 6.4425L4.965 8.0925Z"
+                    fill="white"
+                  />
+                </svg>
+              </span>
+              <a
+                href="tel:+2348130935623"
+                class="text-[14px] font-[400] leading-[24px] text-[#cedbea]"
+              >
+                +2348130935623
+              </a>
+            </span>
+            <span class="flex items-center space-x-1">
+              <span
+                ><svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15 6L9 9.75L3 6V4.5L9 8.25L15 4.5M15 3H3C2.1675 3 1.5 3.6675 1.5 4.5V13.5C1.5 13.8978 1.65804 14.2794 1.93934 14.5607C2.22064 14.842 2.60218 15 3 15H15C15.3978 15 15.7794 14.842 16.0607 14.5607C16.342 14.2794 16.5 13.8978 16.5 13.5V4.5C16.5 3.6675 15.825 3 15 3Z"
+                    fill="white"
+                  /></svg
+              ></span>
+              <a
+                href="mailto:bbalikis93@gmail.com"
+                class="text-[14px] font-[400] leading-[24px] text-[#cedbea]"
+              >
+                bbalikis93@gmail.com
+              </a>
+            </span>
+          </div>
+          <div class="lg:w-[20%] md:pt-4">
+            <p
+              class="text-[16px] font-[800] leading-[24px] text-[#fff] capitalize"
+            >
+              Follow us on:
+            </p>
+            <div class="flex flex-row space-x-3 pt-4">
+              <span
+                ><svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 40 40"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect width="40" height="40" fill="#1E1E1E" />
+                  <g id="Homepage" clip-path="url(#clip0_0_1)">
+                    <rect
+                      width="1440"
+                      height="3347"
+                      transform="translate(-1143 -3090)"
+                      fill="white"
+                    />
+                    <g id="Group 92">
+                      <path
+                        id="Rectangle 14"
+                        d="M-1143 -88H297V257H-1143V-88Z"
+                        fill="#322727"
+                      />
+                      <g id="Frame 659">
+                        <g id="Frame 648">
+                          <g id="Group 46">
+                            <g id="Group 90">
+                              <circle
+                                id="Ellipse 1"
+                                cx="20"
+                                cy="20"
+                                r="20"
+                                fill="#D9D9D9"
+                              />
+                              <path
+                                id="Vector"
+                                d="M16.64 12H23.36C25.92 12 28 14.08 28 16.64V23.36C28 24.5906 27.5111 25.7708 26.641 26.641C25.7708 27.5111 24.5906 28 23.36 28H16.64C14.08 28 12 25.92 12 23.36V16.64C12 15.4094 12.4889 14.2292 13.359 13.359C14.2292 12.4889 15.4094 12 16.64 12ZM16.48 13.6C15.7162 13.6 14.9836 13.9034 14.4435 14.4435C13.9034 14.9836 13.6 15.7162 13.6 16.48V23.52C13.6 25.112 14.888 26.4 16.48 26.4H23.52C24.2838 26.4 25.0164 26.0966 25.5565 25.5565C26.0966 25.0164 26.4 24.2838 26.4 23.52V16.48C26.4 14.888 25.112 13.6 23.52 13.6H16.48ZM24.2 14.8C24.4652 14.8 24.7196 14.9054 24.9071 15.0929C25.0946 15.2804 25.2 15.5348 25.2 15.8C25.2 16.0652 25.0946 16.3196 24.9071 16.5071C24.7196 16.6946 24.4652 16.8 24.2 16.8C23.9348 16.8 23.6804 16.6946 23.4929 16.5071C23.3054 16.3196 23.2 16.0652 23.2 15.8C23.2 15.5348 23.3054 15.2804 23.4929 15.0929C23.6804 14.9054 23.9348 14.8 24.2 14.8ZM20 16C21.0609 16 22.0783 16.4214 22.8284 17.1716C23.5786 17.9217 24 18.9391 24 20C24 21.0609 23.5786 22.0783 22.8284 22.8284C22.0783 23.5786 21.0609 24 20 24C18.9391 24 17.9217 23.5786 17.1716 22.8284C16.4214 22.0783 16 21.0609 16 20C16 18.9391 16.4214 17.9217 17.1716 17.1716C17.9217 16.4214 18.9391 16 20 16ZM20 17.6C19.3635 17.6 18.753 17.8529 18.3029 18.3029C17.8529 18.753 17.6 19.3635 17.6 20C17.6 20.6365 17.8529 21.247 18.3029 21.6971C18.753 22.1471 19.3635 22.4 20 22.4C20.6365 22.4 21.247 22.1471 21.6971 21.6971C22.1471 21.247 22.4 20.6365 22.4 20C22.4 19.3635 22.1471 18.753 21.6971 18.3029C21.247 17.8529 20.6365 17.6 20 17.6Z"
+                                fill="black"
+                              />
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_0_1">
+                      <rect
+                        width="1440"
+                        height="3347"
+                        fill="white"
+                        transform="translate(-1143 -3090)"
+                      />
+                    </clipPath>
+                  </defs></svg
+              ></span>
+              <span
+                ><svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 40 40"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g id="Group 47">
+                    <circle
+                      id="Ellipse 1"
+                      cx="20"
+                      cy="20"
+                      r="20"
+                      fill="#D9D9D9"
+                    />
+                    <path
+                      id="Vector"
+                      d="M29.92 13.8088C29.2236 14.1253 28.473 14.3333 27.6952 14.4328C28.4911 13.9535 29.106 13.1938 29.3955 12.2804C28.6448 12.7326 27.8128 13.0491 26.9355 13.23C26.221 12.4522 25.2171 12 24.0776 12C21.9523 12 20.2158 13.7364 20.2158 15.8799C20.2158 16.1874 20.252 16.4858 20.3153 16.7662C17.0956 16.6034 14.2287 15.0569 12.3204 12.7145C11.9858 13.2842 11.7959 13.9535 11.7959 14.6589C11.7959 16.0065 12.4742 17.2003 13.5233 17.8786C12.8811 17.8786 12.2842 17.6977 11.7597 17.4264C11.7597 17.4264 11.7597 17.4264 11.7597 17.4535C11.7597 19.3347 13.0982 20.9083 14.8708 21.261C14.5452 21.3515 14.2016 21.3967 13.8489 21.3967C13.6047 21.3967 13.3605 21.3696 13.1253 21.3243C13.6137 22.8528 15.0336 23.9923 16.7429 24.0194C15.4225 25.0685 13.7494 25.6835 11.9225 25.6835C11.615 25.6835 11.3075 25.6655 11 25.6293C12.7184 26.7326 14.7623 27.3748 16.9509 27.3748C24.0776 27.3748 27.9936 21.46 27.9936 16.3321C27.9936 16.1602 27.9936 15.9974 27.9846 15.8256C28.7443 15.283 29.3954 14.5956 29.92 13.8088Z"
+                      fill="black"
+                    />
+                  </g></svg
+              ></span>
+              <span
+                ><svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 40 40"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g id="Group 49">
+                    <circle
+                      id="Ellipse 1"
+                      cx="20"
+                      cy="20"
+                      r="20"
+                      fill="#D9D9D9"
+                    />
+                    <path
+                      id="Vector"
+                      d="M20 11C15.05 11 11 15.041 11 20.018C11 24.518 14.294 28.253 18.596 28.928V22.628H16.31V20.018H18.596V18.029C18.596 15.77 19.937 14.528 21.998 14.528C22.979 14.528 24.005 14.699 24.005 14.699V16.922H22.871C21.755 16.922 21.404 17.615 21.404 18.326V20.018H23.906L23.501 22.628H21.404V28.928C23.5248 28.593 25.456 27.5109 26.8489 25.877C28.2419 24.2431 29.0048 22.1651 29 20.018C29 15.041 24.95 11 20 11Z"
+                      fill="black"
+                    />
+                  </g></svg
+              ></span>
+              <div
+                class="w-10 h-10 bg-[#D9D9D9] rounded-full flex items-center justify-center"
+              >
+                <a href="https://wa.me/message/GPXHFW44MRMGI1">
+                  <img src="./asset/whatsapp.svg" alt="whatsap" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-[80%] md:w-[80%] mx-auto bg-[#474E56] h-[0.5px]"></div>
+      <div class="w-[80%] pt-4 pb-4 md:w-[90%] mx-auto">
+        <div
+          class="flex flex-row justify-center items-center space-x-4 md:space-x-8"
+        >
+          <p
+            id="copyright"
+            class="md:text-[12px] text-[12px] font-[400] leading-[24px] text-[#cedbea]"
+          ></p>
+          <!-- <p class="md:text-[16px] text-[12px] font-[400] leading-[24px] text-[#cedbea]">
+                    Cookie Policy
+                </p>
+                <p class="md:text-[16px] text-[12px] font-[400] leading-[24px] text-[#cedbea]">
+                    Cookie Settings
+                </p> -->
+          <!-- <p class="md:text-[12px] md:block hidden text-[12px] font-[400] leading-[24px] text-[#cedbea]">
+                    Terms & Conditions
+                </p> -->
+        </div>
+
+        <!-- <span>
+                <p class="md:text-[16px] block md:hidden text-[12px] font-[400] leading-[24px] text-[#cedbea]">
+                    Terms & Conditions
+                </p>
+            </span> -->
+      </div>
+    </div>
+
+    <script>
+      // Get the current year
+      const currentYear = new Date().getFullYear();
+
+      // Set the copyright text in the footer
+      document.getElementById(
+        "copyright"
+      ).innerHTML = `&copy; ${currentYear} 1101 Confectionaries. All rights reserved.`;
+    </script>
+    <script src="./node_modules/preline/dist/preline.js"></script>
+    <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+  </body>
+</html>
