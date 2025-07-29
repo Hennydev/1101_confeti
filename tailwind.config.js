@@ -4,11 +4,12 @@ module.exports = {
     "./src/**/*.{html,js}",
     "./node_modules/tw-elements/dist/js/**/*.js",
   ],
+  plugins: [require("tw-elements/plugin.cjs")],
   theme: {
     extend: {
       fontFamily: {
         Mulish: ["Mulish", "sans-serif"],
-        Caveat: ["Caveat", "sans-serif"]
+        Caveat: ["Caveat", "sans-serif"],
       },
       animation: {
         "text-slide":

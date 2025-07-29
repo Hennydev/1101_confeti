@@ -7,11 +7,11 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/css/glide.core.min.css"
     />
-    <!-- <link href="./dist/output.css" rel="stylesheet" /> -->
-    <link
+    <link href="./output.css" rel="stylesheet" />
+    <!-- <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css"
-    />
+    /> -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,8 +22,8 @@
       href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
       rel="stylesheet"
     />
-
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!--
+    <script src="https://cdn.tailwindcss.com"></script> -->
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Caveat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap");
     </style>
@@ -103,7 +103,7 @@
 
   <body class="overflow-x-hidden relative">
     <nav
-      class="mx-auto fixed top-0 md:flex md:flex-row bg-[#322727]  items-center w-full z-50 md:py-6 py-6 lg:py-10"
+      class="mx-auto fixed top-0 md:flex md:flex-row bg-[#322727] items-center w-full z-50 md:py-6 py-6 lg:py-10"
     >
       <div
         x-data="{ open: false }"
@@ -132,25 +132,70 @@
             <a href="./index.html">1101 Confectionaries</a>
           </p>
 
-               <button>
-                    <button   @click="open = true " type="button"
-                        class="block rounded font-semibold lg:!hidden transition duration-150 ease-in-out focus:outline-none focus:ring-0"
-                        type="button" data-te-offcanvas-toggle data-te-target="#offcanvasExample"
-                        aria-controls="offcanvasExample" data-te-ripple-init data-te-ripple-color="light">
-                        <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-                        <svg  x-show="!open"  width="30px" height="30px" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 6H20M4 12H20M4 18H20" stroke="#fff" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                    <button x-show="open" @click="open = false"   type="button"
-                        class="block  rounded font-semibold lg:!hidden transition duration-150 ease-in-out focus:outline-none focus:ring-0"
-                        type="button" data-te-offcanvas-toggle data-te-target="#offcanvasExample"
-                        aria-controls="offcanvasExample" data-te-ripple-init data-te-ripple-color="light">
-                       <svg width="24px" height="24px"  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.7457 3.32851C20.3552 2.93798 19.722 2.93798 19.3315 3.32851L12.0371 10.6229L4.74275 3.32851C4.35223 2.93798 3.71906 2.93798 3.32854 3.32851C2.93801 3.71903 2.93801 4.3522 3.32854 4.74272L10.6229 12.0371L3.32856 19.3314C2.93803 19.722 2.93803 20.3551 3.32856 20.7457C3.71908 21.1362 4.35225 21.1362 4.74277 20.7457L12.0371 13.4513L19.3315 20.7457C19.722 21.1362 20.3552 21.1362 20.7457 20.7457C21.1362 20.3551 21.1362 19.722 20.7457 19.3315L13.4513 12.0371L20.7457 4.74272C21.1362 4.3522 21.1362 3.71903 20.7457 3.32851Z" fill="#fff"></path> </g></svg>
-                    </button>
-                </button>
+          <button>
+            <button
+              @click="open = true "
+              type="button"
+              class="block rounded font-semibold lg:!hidden transition duration-150 ease-in-out focus:outline-none focus:ring-0"
+              type="button"
+              data-te-offcanvas-toggle
+              data-te-target="#offcanvasExample"
+              aria-controls="offcanvasExample"
+              data-te-ripple-init
+              data-te-ripple-color="light"
+            >
+              <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+              <svg
+                x-show="!open"
+                width="30px"
+                height="30px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 6H20M4 12H20M4 18H20"
+                  stroke="#fff"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <button
+              x-show="open"
+              @click="open = false"
+              type="button"
+              class="block rounded font-semibold lg:!hidden transition duration-150 ease-in-out focus:outline-none focus:ring-0"
+              type="button"
+              data-te-offcanvas-toggle
+              data-te-target="#offcanvasExample"
+              aria-controls="offcanvasExample"
+              data-te-ripple-init
+              data-te-ripple-color="light"
+            >
+              <svg
+                width="24px"
+                height="24px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M20.7457 3.32851C20.3552 2.93798 19.722 2.93798 19.3315 3.32851L12.0371 10.6229L4.74275 3.32851C4.35223 2.93798 3.71906 2.93798 3.32854 3.32851C2.93801 3.71903 2.93801 4.3522 3.32854 4.74272L10.6229 12.0371L3.32856 19.3314C2.93803 19.722 2.93803 20.3551 3.32856 20.7457C3.71908 21.1362 4.35225 21.1362 4.74277 20.7457L12.0371 13.4513L19.3315 20.7457C19.722 21.1362 20.3552 21.1362 20.7457 20.7457C21.1362 20.3551 21.1362 19.722 20.7457 19.3315L13.4513 12.0371L20.7457 4.74272C21.1362 4.3522 21.1362 3.71903 20.7457 3.32851Z"
+                    fill="#fff"
+                  ></path>
+                </g>
+              </svg>
+            </button>
+          </button>
 
           <ul
             x-data="{ open: false }"
@@ -248,16 +293,17 @@
         >
           <!-- Item 1 -->
           <div class="hidden duration-1000 ease-in-out" data-carousel-item>
-
             <div
               class="mx-auto md:space-x-4 lg:space-6 lg:space- md:w-[80%] w-[95%] lg:w-[80%] lg:mt-[60px] mt-[36px] pb-12 h-full flex md:flex-row flex-col items-center justify-center md:justify-between"
             >
-              <div class="w-[350px] h-[350px] md:w-[400px]  md:h-[400px] lg:w-[450px] lg:h-[450px] xl:h-[600px] xl:w-[600px] ">
+              <div
+                class="w-[350px] h-[350px] md:w-[400px] md:h-[400px] lg:w-[450px] lg:h-[450px] xl:h-[600px] xl:w-[600px]"
+              >
                 <img
-                class=" w-full h-full rounded-full shadow mb-6"
-                src="./asset/newhero.jpg"
-                alt="hero-img"
-              />
+                  class="w-full h-full rounded-full shadow mb-6"
+                  src="./asset/newhero.jpg"
+                  alt="hero-img"
+                />
               </div>
 
               <div class="md:w-[50%] lg:w-[50%]">
@@ -286,16 +332,17 @@
           </div>
           <!-- Item 2 -->
           <div class="hidden duration-1000 ease-in-out" data-carousel-item>
-
             <div
               class="mx-auto md:space-x-4 lg:space-6 lg:space- md:w-[80%] w-[95%] lg:w-[80%] lg:mt-[60px] mt-[24px] h-full flex md:flex-row flex-col items-center justify-center md:justify-between"
             >
-             <div class="w-[350px] h-[350px] md:w-[400px]  md:h-[400px] lg:w-[450px] lg:h-[450px] xl:h-[600px] xl:w-[600px]">
+              <div
+                class="w-[350px] h-[350px] md:w-[400px] md:h-[400px] lg:w-[450px] lg:h-[450px] xl:h-[600px] xl:w-[600px]"
+              >
                 <img
-                class=" w-full h-full rounded-full shadow mb-6"
-                src="./asset/cake.jpg"
-                alt="hero-img"
-              />
+                  class="w-full h-full rounded-full shadow mb-6"
+                  src="./asset/cake.jpg"
+                  alt="hero-img"
+                />
               </div>
 
               <div class="md:w-[50%] lg:w-[50%]">
@@ -325,18 +372,18 @@
 
           <!-- Item 3 -->
 
-
-             <div class="hidden duration-1000 ease-in-out" data-carousel-item>
-
+          <div class="hidden duration-1000 ease-in-out" data-carousel-item>
             <div
               class="mx-auto md:space-x-4 lg:space-6 lg:space- md:w-[80%] w-[95%] lg:w-[80%] lg:mt-[60px] mt-[24px] h-full flex md:flex-row flex-col items-center justify-center md:justify-between"
             >
-             <div class="w-[350px] h-[350px] md:w-[400px]  md:h-[400px] lg:w-[450px] lg:h-[450px] xl:h-[600px] xl:w-[600px]">
+              <div
+                class="w-[350px] h-[350px] md:w-[400px] md:h-[400px] lg:w-[450px] lg:h-[450px] xl:h-[600px] xl:w-[600px]"
+              >
                 <img
-                class=" w-full h-full rounded-full shadow mb-6"
-                src="./asset/dess2.jpeg"
-                alt="hero-img"
-              />
+                  class="w-full h-full rounded-full shadow mb-6"
+                  src="./asset/dess2.jpeg"
+                  alt="hero-img"
+                />
               </div>
 
               <div class="md:w-[50%] lg:w-[50%]">
@@ -348,10 +395,10 @@
                 <p
                   class="capitalize lg:text-[12pt] text-[10pt] pt-4 text-[#fff]"
                 >
-                      Step into a world of pure imagination and indulge in the
-                    sweet life! Our confectionaries are a haven for those with a
-                    sweet tooth, offering an array of treats that will tantalize
-                    your taste buds and leave you wanting more.
+                  Step into a world of pure imagination and indulge in the sweet
+                  life! Our confectionaries are a haven for those with a sweet
+                  tooth, offering an array of treats that will tantalize your
+                  taste buds and leave you wanting more.
                 </p>
                 <button
                   class="bg-white px-10 py-3 rounded-sm my-4 font-bold hover:shadow-2xl text-[#322727]"
@@ -448,7 +495,7 @@
     <!--- about us--->
 
     <div
-      class="md:w-[90%] flex md:flex-row flex-col md:space-x-4   items-center justify-center  md:space-y-0 space-y-6 lg:pt-36 pt-10 w-[95%] lg:w-[80%] mx-auto md:mt-20 mt-10"
+      class="md:w-[90%] flex md:flex-row flex-col md:space-x-4 items-center justify-center md:space-y-0 space-y-6 lg:pt-36 pt-10 w-[95%] lg:w-[80%] mx-auto md:mt-20 mt-10"
     >
       <div class="">
         <div
@@ -502,22 +549,22 @@
     <div
       class="w-[95%] md:w-[90%] flex md:flex-row flex-col md:my-0 justify-center items-center md:py-16 md:space-x-12 py-14 lg:w-[80%] mx-auto"
     >
-        <div
-        class="w-[200px] h-[200px] lg:w-[400px] lg:h-[400px] xl:w-[500px] xl:h-[500px]  relative mt-14 hidden md:block bg-[#322727] rounded-full shadow object-top"
+      <div
+        class="w-[200px] h-[200px] lg:w-[400px] lg:h-[400px] xl:w-[500px] xl:h-[500px] relative mt-14 hidden md:block bg-[#322727] rounded-full shadow object-top"
       >
         <img
-          class="rounded-full w-full h-full absolute right-4 "
+          class="rounded-full w-full h-full absolute right-4"
           src="./asset/hero-img.jpeg"
           alt="hero-img"
         />
       </div>
-      <div class=" py-4 md:py-0 md:w-[45%]">
+      <div class="py-4 md:py-0 md:w-[45%]">
         <h1
           class="capitalize text-[#322727] font-semibold text-[32pt] font-Caveat"
         >
           Who we are
         </h1>
-        <p class="capitalize  text-[12pt] py-4 mb-4 text-[#322727]">
+        <p class="capitalize text-[12pt] py-4 mb-4 text-[#322727]">
           We are 1101 Sweet Confectionaries, our vision is to become the premier
           destination for sweet treats that bring joy and happiness to our
           customers. We envision a world where every occasion is made sweeter
@@ -534,7 +581,7 @@
         class="w-[330px] h-[330px] relative mt-14 block md:hidden bg-[#322727] rounded-full shadow object-top"
       >
         <img
-          class="rounded-full w-full h-full absolute right-4 "
+          class="rounded-full w-full h-full absolute right-4"
           src="./asset/hero-img.jpeg"
           alt="hero-img"
         />
@@ -551,10 +598,10 @@
         class="w-[95%] h-full md:w-[80%] lg:w-[80%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mx-auto"
       >
         <div
-          class=" md:h-[300px] h-[200px] rounded-lg bg-[#fff] flex flex-col items-center justify-center"
+          class="md:h-[300px] h-[200px] rounded-lg bg-[#fff] flex flex-col items-center justify-center"
         >
           <img
-            class="lg:h-[50%] lg:w-[50%] h-[40%] w-[35%] "
+            class="lg:h-[50%] lg:w-[50%] h-[40%] w-[35%]"
             src="./asset/cook.png"
             alt="products"
           />
@@ -564,14 +611,13 @@
           >
             Cookies
           </p>
-
         </div>
 
         <div
-          class=" md:h-[300px] h-[200px] rounded-lg bg-[#fff] flex flex-col items-center justify-center"
+          class="md:h-[300px] h-[200px] rounded-lg bg-[#fff] flex flex-col items-center justify-center"
         >
           <img
-            class="lg:h-[50%] lg:w-[50%] h-[40%] w-[35%] "
+            class="lg:h-[50%] lg:w-[50%] h-[40%] w-[35%]"
             src="./asset/cake.png"
             alt="products"
           />
@@ -581,25 +627,27 @@
           >
             Cake
           </p>
-
         </div>
         <div
-          class=" md:h-[300px] h-[200px] rounded-lg bg-[#fff] flex flex-col items-center justify-center"
+          class="md:h-[300px] h-[200px] rounded-lg bg-[#fff] flex flex-col items-center justify-center"
         >
-          <img class="lg:h-[50%] lg:w-[50%] h-[40%] w-[35%] " src="./asset/tnut.png" alt="products" />
+          <img
+            class="lg:h-[50%] lg:w-[50%] h-[40%] w-[35%]"
+            src="./asset/tnut.png"
+            alt="products"
+          />
 
           <p
-            class="font-[500] lg:text-[30px] md:text-[24px] font-Caveat text-center text-[20px]  pt-6 leading-0.5"
+            class="font-[500] lg:text-[30px] md:text-[24px] font-Caveat text-center text-[20px] pt-6 leading-0.5"
           >
             TigerNut Drink
           </p>
-
         </div>
         <div
-          class=" md:h-[300px] h-[200px] rounded-lg bg-[#fff] flex flex-col items-center justify-center"
+          class="md:h-[300px] h-[200px] rounded-lg bg-[#fff] flex flex-col items-center justify-center"
         >
           <img
-            class="lg:h-[50%] lg:w-[50%] h-[40%] w-[35%] "
+            class="lg:h-[50%] lg:w-[50%] h-[40%] w-[35%]"
             src="./asset/chinn.png"
             alt="products"
           />
@@ -609,13 +657,12 @@
           >
             Chinchin
           </p>
-
         </div>
         <div
-          class=" md:h-[300px] h-[200px] rounded-lg bg-[#fff] flex flex-col items-center justify-center"
+          class="md:h-[300px] h-[200px] rounded-lg bg-[#fff] flex flex-col items-center justify-center"
         >
           <img
-            class="lg:h-[50%] lg:w-[50%] h-[40%] w-[35%] "
+            class="lg:h-[50%] lg:w-[50%] h-[40%] w-[35%]"
             src="./asset/zoboo.png"
             alt="products"
           />
@@ -625,13 +672,12 @@
           >
             Zobo
           </p>
-
         </div>
         <div
-          class=" md:h-[300px] h-[200px] rounded-lg bg-[#fff] flex flex-col items-center justify-center"
+          class="md:h-[300px] h-[200px] rounded-lg bg-[#fff] flex flex-col items-center justify-center"
         >
           <img
-            class="lg:h-[50%] lg:w-[50%] h-[40%] w-[35%] "
+            class="lg:h-[50%] lg:w-[50%] h-[40%] w-[35%]"
             src="./asset/bredloaf.png"
             alt="products"
           />
@@ -641,13 +687,12 @@
           >
             Bread Loaf
           </p>
-
         </div>
         <div
-          class=" md:h-[300px] h-[200px] rounded-lg bg-[#fff] flex flex-col items-center justify-center"
+          class="md:h-[300px] h-[200px] rounded-lg bg-[#fff] flex flex-col items-center justify-center"
         >
           <img
-            class="lg:h-[50%] lg:w-[50%] h-[40%] w-[35%] "
+            class="lg:h-[50%] lg:w-[50%] h-[40%] w-[35%]"
             src="./asset/chp.png"
             alt="products"
           />
@@ -657,9 +702,7 @@
           >
             Ready to fry smallchops
           </p>
-
         </div>
-
       </div>
       <div class="flex items-center justify-center w-full">
         <a
@@ -748,7 +791,7 @@
             <p
               class="text-[#322727] md:text-sm text-xs font-normal font-['Caveat'] leading-none"
             >
-              The pafait was superb, It was worth th price
+              The pafait was superb, It was worth the price
             </p>
           </div>
         </div>
@@ -1237,5 +1280,6 @@
     <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+
   </body>
 </html>
